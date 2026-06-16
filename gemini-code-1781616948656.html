@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plomberie Dupont — Dépannage & Installation à Paris</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1e3a8a; /* Bleu marine pro */
+    --primary-dark: #1e3a8a;
+    --accent: #ea580c; /* Orange urgence */
+    --accent-hover: #c2410c;
+    --text-main: #334155;
+    --text-light: #64748b;
+    --bg-light: #f8fafc;
+    --white: #ffffff;
+    --border: #e2e8f0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-family: 'Roboto', sans-serif; }
+  body { background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; }
+
+  /* NAVIGATION */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 5%; height: 80px;
+  }
+  .logo { font-size: 1.5rem; font-weight: 900; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  .logo svg { width: 24px; height: 24px; fill: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 500; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--accent); }
+  .btn-call { background: var(--accent); color: var(--white); padding: 0.6rem 1.5rem; border-radius: 4px; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+  .btn-call:hover { background: var(--accent-hover); transform: translateY(-2px); }
+
+  /* HERO SECTION */
+  .hero {
+    margin-top: 80px; padding: 6rem 5%;
+    background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
+    color: var(--white); text-align: center;
+  }
+  .hero-badge { display: inline-block; background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: 1px; text-transform: uppercase; color: #fba918; }
+  .hero h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; }
+  .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 2.5rem auto; color: #cbd5e1; }
+  .hero-buttons { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--accent); color: var(--white); padding: 1rem 2rem; font-size: 1.1rem; font-weight: 700; border-radius: 4px; text-decoration: none; transition: 0.3s; }
+  .btn-primary:hover { background: var(--accent-hover); }
+  .btn-secondary { background: transparent; color: var(--white); border: 2px solid var(--white); padding: 1rem 2rem; font-size: 1.1rem; font-weight: 700; border-radius: 4px; text-decoration: none; transition: 0.3s; }
+  .btn-secondary:hover { background: var(--white); color: var(--primary); }
+
+  /* TRUST BAR */
+  .trust-bar { display: flex; justify-content: space-around; flex-wrap: wrap; background: var(--white); padding: 2rem 5%; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-bottom: 1px solid var(--border); }
+  .trust-item { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--primary); }
+  .trust-item svg { width: 24px; height: 24px; stroke: var(--accent); fill: none; stroke-width: 2; }
+
+  /* SERVICES */
+  .services { padding: 5rem 5%; text-align: center; max-width: 1200px; margin: 0 auto; }
+  .section-title { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; font-weight: 900; }
+  .section-subtitle { color: var(--text-light); margin-bottom: 4rem; font-size: 1.1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+  .card { background: var(--white); padding: 2.5rem 1.5rem; border-radius: 8px; border: 1px solid var(--border); transition: 0.3s; }
+  .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: var(--primary); }
+  .icon-wrap { width: 60px; height: 60px; background: #eff6ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; }
+  .icon-wrap svg { width: 30px; height: 30px; stroke: var(--primary); stroke-width: 2; fill: none; }
+  .card h3 { font-size: 1.2rem; color: var(--primary); margin-bottom: 1rem; }
+  .card p { font-size: 0.95rem; color: var(--text-light); }
+
+  /* TARIFS */
+  .tarifs { background: var(--white); padding: 5rem 5%; border-top: 1px solid var(--border); }
+  .tarifs-container { max-width: 800px; margin: 0 auto; }
+  .tarif-row { display: flex; justify-content: space-between; padding: 1.5rem 0; border-bottom: 1px dashed var(--border); }
+  .tarif-name { font-weight: 700; color: var(--text-main); }
+  .tarif-price { font-weight: 900; color: var(--accent); font-size: 1.2rem; }
+  .tarif-note { text-align: center; font-size: 0.85rem; color: var(--text-light); margin-top: 2rem; }
+
+  /* CONTACT / DEVIS */
+  .contact { padding: 5rem 5%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+  @media (max-width: 768px) { .contact { grid-template-columns: 1fr; } }
+  .contact-info h3 { font-size: 1.8rem; color: var(--primary); margin-bottom: 1.5rem; }
+  .info-block { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 1.5rem; }
+  .info-block svg { width: 24px; height: 24px; stroke: var(--accent); stroke-width: 2; fill: none; flex-shrink: 0; }
+  .info-text h4 { font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.2rem; }
+  .info-text p { color: var(--text-light); }
+
+  .form-box { background: var(--white); padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-weight: 500; margin-bottom: 0.5rem; font-size: 0.9rem; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.8rem; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); }
+  .submit-btn { width: 100%; background: var(--primary); color: white; padding: 1rem; border: none; border-radius: 4px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: 0.3s; }
+  .submit-btn:hover { background: #1e40af; }
+
+  /* FOOTER */
+  footer { background: var(--primary); color: white; text-align: center; padding: 2rem 5%; margin-top: 4rem; }
+  footer p { color: #cbd5e1; font-size: 0.9rem; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-buttons { flex-direction: column; }
+    .trust-bar { flex-direction: column; gap: 1rem; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">
+    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    Plomberie Dupont
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#tarifs">Tarifs</a></li>
+    <li><a href="#contact">Contact & Devis</a></li>
+  </ul>
+  <a href="tel:+33123456789" class="btn-call">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    01 23 45 67 89
+  </a>
+</nav>
+
+<header class="hero">
+  <span class="hero-badge">Intervention Paris & Petite Couronne</span>
+  <h1>Urgence Plomberie.<br>Artisan de confiance.</h1>
+  <p>Une fuite d'eau ? Un ballon d'eau chaude en panne ? Notre équipe d'artisans plombiers parisiens intervient en moins de 30 minutes, 24h/24 et 7j/7.</p>
+  <div class="hero-buttons">
+    <a href="tel:+33123456789" class="btn-primary">Appeler en Urgence</a>
+    <a href="#contact" class="btn-secondary">Demander un Devis</a>
+  </div>
+</header>
+
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Intervention en 30 min
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    Artisans Qualifiés
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 15h0M2 9.5h20"/></svg>
+    Tarifs 100% Transparents
+  </div>
+</div>
+
+<section id="services" class="services">
+  <h2 class="section-title">Nos Domaines d'Intervention</h2>
+  <p class="section-subtitle">Nous couvrons l'ensemble de vos besoins en plomberie et chauffage.</p>
+  
+  <div class="grid">
+    <div class="card">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
+      <h3>Recherche de Fuite</h3>
+      <p>Localisation et réparation immédiate de fuites d'eau (apparente ou encastrée) pour limiter les dégâts.</p>
+    </div>
+    <div class="card">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+      <h3>Débouchage Canalisation</h3>
+      <p>Intervention rapide avec équipement professionnel (furet électrique, pompe) pour wc, éviers ou douches bouchés.</p>
+    </div>
+    <div class="card">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <h3>Ballon d'Eau Chaude</h3>
+      <p>Dépannage, détartrage ou remplacement complet de votre chauffe-eau électrique ou gaz.</p>
+    </div>
+    <div class="card">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+      <h3>Installation Sanitaire</h3>
+      <p>Création ou rénovation de salle de bain, installation de WC suspendus, pose de robinetterie.</p>
+    </div>
+  </div>
+</section>
+
+<section id="tarifs" class="tarifs">
+  <div class="tarifs-container">
+    <h2 class="section-title" style="text-align: center;">Grille Tarifaire (Hors Taxes)</h2>
+    <p class="section-subtitle" style="text-align: center;">Pas de surprise, nos prix de base sont affichés.</p>
+    
+    <div class="tarif-row">
+      <span class="tarif-name">Déplacement Paris & Proche Banlieue</span>
+      <span class="tarif-price">49 €</span>
+    </div>
+    <div class="tarif-row">
+      <span class="tarif-name">Recherche et réparation petite fuite</span>
+      <span class="tarif-price">dès 89 €</span>
+    </div>
+    <div class="tarif-row">
+      <span class="tarif-name">Débouchage WC / Évier</span>
+      <span class="tarif-price">dès 99 €</span>
+    </div>
+    <div class="tarif-row">
+      <span class="tarif-name">Diagnostic Chauffe-eau</span>
+      <span class="tarif-price">80 €</span>
+    </div>
+    <p class="tarif-note">* Majoration de 50% applicable les nuits (20h-8h), week-ends et jours fériés. Un devis gratuit est toujours établi avant intervention.</p>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="contact-info">
+    <h3>Besoin d'un artisan ?</h3>
+    <p style="margin-bottom: 2rem; color: var(--text-light);">Contactez-nous pour une urgence ou décrivez votre projet pour obtenir un devis gratuit sous 24h.</p>
+    
+    <div class="info-block">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <div class="info-text">
+        <h4>Téléphone (24/7)</h4>
+        <p>01 23 45 67 89</p>
+      </div>
+    </div>
+    
+    <div class="info-block">
+      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <div class="info-text">
+        <h4>Siège Social</h4>
+        <p>12 Rue de la Convention<br>75015 Paris, France</p>
+      </div>
+    </div>
+    
+    <div class="info-block">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div class="info-text">
+        <h4>Horaires d'ouverture</h4>
+        <p>Dépannage : 24h/24 et 7j/7<br>Bureaux : Lundi - Vendredi (9h - 18h)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-box">
+    <form onsubmit="event.preventDefault(); alert('Merci ! Le message a bien été envoyé (Ceci est une simulation).');">
+      <div class="form-group">
+        <label>Nom & Prénom</label>
+        <input type="text" placeholder="Ex: Jean Martin" required>
+      </div>
+      <div class="form-group">
+        <label>Téléphone</label>
+        <input type="tel" placeholder="06 00 00 00 00" required>
+      </div>
+      <div class="form-group">
+        <label>Type de demande</label>
+        <select>
+          <option>Urgence (Fuite, Débouchage)</option>
+          <option>Rénovation de salle de bain</option>
+          <option>Remplacement de chauffe-eau</option>
+          <option>Autre demande de devis</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Détails du problème ou du projet</label>
+        <textarea rows="4" placeholder="Décrivez votre besoin et précisez votre code postal..." required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Envoyer ma demande</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <h3>Plomberie Dupont</h3>
+  <p>Artisan Plombier à Paris • N° SIRET : 123 456 789 00012</p>
+  <p style="margin-top: 1rem;">© 2026 Plomberie Dupont. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>
